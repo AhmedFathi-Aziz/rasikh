@@ -308,7 +308,8 @@ body {
 }
 
 .btn.dark {
-    background-color: #0d1b2a;
+    /* background-color: #0d1b2a; */
+    border: 2px solid white;
     color: white;
 }
 
@@ -317,13 +318,12 @@ body {
 }
 
 .btn.outline {
-    border: 2px solid #00a3e0;
+    border: 2px solid white;
     color: white;
 }
 
 .btn.outline:hover {
-    background-color: #00a3e0;
-    color: black;
+    background-color: #1b263b;
 }
 
 .hero-boxes {
@@ -357,7 +357,9 @@ body {
 
 .cta-box {
     grid-column: span 2;
-    background-color: #00a3e0;
+    /* background-color: #00a3e0; */
+    background: linear-gradient(to right, #1E3A5F, #2A4B7A);
+    /* border: 2px solid white; */
     padding: 15px;
     text-align: center;
     font-weight: bold;
@@ -448,7 +450,7 @@ body {
 }
 
 .cta-transform {
-    background: linear-gradient(to right, #00a3e0, #0077b6); 
+    background: linear-gradient(to right, #1E3A5F, #2A4B7A);
     /* background-color: #FFC107; */
     color: white;
     padding: 80px 20px;
@@ -479,8 +481,9 @@ body {
     flex-wrap: wrap; 
 }
 .btn.light {
-    background-color: white;
-    color: #00a3e0;
+    /* background: linear-gradient(to right, #1E3A5F, #2A4B7A); */
+    /* background-color: white; */
+    color: white;
     border: 2px solid white;
 }
 
@@ -886,7 +889,7 @@ a {
   }
 
   thead {
-    background-color: #007BFF;
+    background-color: #1e2a3b; 
     color: #fff;
   }
 
