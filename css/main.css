@@ -36,6 +36,7 @@ body {
         display: none;
         width: 100%;
         text-align: center;
+        
     }
 
     .nav-links.active {
@@ -868,16 +869,20 @@ a {
   .table-container {
     overflow-x: auto;
     margin: 20px auto;
+    /* margin: 20px; */
     max-width: 1200px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
+    display: block;
+  } 
+
+  
 
   table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 600px;
+    /* min-width: 600px; */
   }
 
   thead {
@@ -891,20 +896,31 @@ a {
     border-bottom: 1px solid #ddd;
   }
 
+
   tr:nth-child(even) {
     background-color: #f2f2f2;
   }
 
   @media (max-width: 768px) {
     th, td {
-      padding: 10px 12px;
-      font-size: 14px;
+      font-size: 110px;
     }
   }
 
+  @media (max-width: 1228px) {
+    th, td {
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+    .table-container {
+        margin: 20px;
+    }
+  }
+  
 
   .logo {
     flex: 0 0 auto;
+    cursor: pointer;
   }
   
   .logo img {
