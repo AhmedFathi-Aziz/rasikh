@@ -8,6 +8,7 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { LanguageProvider } from "@/components/language-provider"
 import FontWrapper from "@/components/font-wrapper"
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] })
 const cairo = Cairo({ subsets: ["arabic"] })
@@ -105,6 +106,7 @@ export default function RootLayout({
             </FontWrapper>
           </LanguageProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
