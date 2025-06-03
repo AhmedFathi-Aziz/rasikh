@@ -212,6 +212,16 @@ export default function NewsDetailPage() {
             {/* Closing */}
             <div className={`pt-6 mt-4 border-t border-gray-200 space-y-3 ${c.dir === "rtl" ? "text-right" : "text-left"}`}>
               <div className={`flex flex-col items-end text-base md:text-lg font-semibold w-full gap-2 ${c.dir === "rtl" ? "text-right" : "text-left"}`}>
+                {/* Registration Button */}
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSf9R81BdwV7QI5M8VCh5GQ5ZmaH52vxxPYcHR45vDZuFjDu1Q/viewform?usp=dialog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mb-2 self-stretch flex justify-center items-center gap-2 text-white font-bold whitespace-nowrap bg-green-600 hover:bg-green-700 px-6 py-3 rounded-xl shadow-lg text-lg md:text-xl transition-colors"
+                >
+                  📝 <span>{language === 'ar' ? 'سجل الآن' : 'Register Now'}</span>
+                </a>
+                {/* End Registration Button */}
                 <span className="w-full">{c.whatsappLine}</span>
                 <a
                   href="https://wa.me/971525775382"
