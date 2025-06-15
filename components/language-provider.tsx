@@ -25,6 +25,11 @@ const enTranslations = {
   about_the_coaches: "About the Coaches",
   contact_us_to_enroll: "Contact Us to Enroll",
 
+  // News categories
+  news_1_category: "Partnership",
+  news_2_category: "Announcement",
+  news_3_category: "Event",
+
   // Hero section
   hero_title: "Empowering Future Innovators",
   hero_subtitle:
@@ -209,6 +214,11 @@ const arTranslations = {
   about_the_coaches: "عن المدربين",
   contact_us_to_enroll: "تواصل معنا للتسجيل",
 
+  // News categories
+  news_1_category: "شراكة",
+  news_2_category: "إعلان",
+  news_3_category: "فعالية",
+
   // Hero section
   hero_title: "تمكين مبتكري المستقبل",
   hero_subtitle: "تدريب احترافي في هندسة البرمجيات والبرمجة التنافسية وتعليم التكنولوجيا للأطفال",
@@ -385,17 +395,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Try to load language from localStorage only on mount
-    const savedLanguage = localStorage.getItem("language") as Language | null
+    const savedLanguage = localStorage.getItem("language")
     if (savedLanguage && (savedLanguage === "en" || savedLanguage === "ar")) {
-      setLanguage(savedLanguage)
+      setLanguage(savedLanguage as Language)
     }
     // Set dir attribute on document for RTL support
-    document.documentElement.dir = language === "ar" ? "rtl" : "ltr"
-    document.documentElement.lang = language
-  }, [])
-
-  useEffect(() => {
-    // Update dir and lang when language changes
     document.documentElement.dir = language === "ar" ? "rtl" : "ltr"
     document.documentElement.lang = language
   }, [language])

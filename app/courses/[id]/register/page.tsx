@@ -24,6 +24,21 @@ const countryCodes = [
 const inputStyle =
   "border border-gray-300 rounded-lg px-3 py-2 bg-white placeholder-gray-400 text-sm focus:outline-none";
 
+interface FormErrors {
+  courseName?: string;
+  location?: string;
+  numberOfDays?: string;
+  numberOfParticipants?: string;
+  preferredLanguage?: string;
+  firstName?: string;
+  lastName?: string;
+  jobTitle?: string;
+  company?: string;
+  email?: string;
+  phone?: string;
+  submit?: string;
+}
+
 export default function CourseRegisterPage() {
   const { language } = useLanguage();
   const isAr = language === "ar";
@@ -45,7 +60,7 @@ export default function CourseRegisterPage() {
     email: "",
   });
   const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState<any>({});
+  const [errors, setErrors] = useState<FormErrors>({});
 
   useEffect(() => {
     setLoading(true);
@@ -64,8 +79,8 @@ export default function CourseRegisterPage() {
       });
   }, [id, isAr]);
 
-  const validate = () => {
-    const errs: any = {};
+  const validate = (): FormErrors => {
+    const errs: FormErrors = {};
     if (!form.courseName) errs.courseName = isAr ? "هذا الحقل مطلوب" : "Required";
     if (!form.location) errs.location = isAr ? "هذا الحقل مطلوب" : "Required";
     if (!form.numberOfDays || isNaN(Number(form.numberOfDays)) || Number(form.numberOfDays) <= 0) errs.numberOfDays = isAr ? "أدخل عدد أيام صحيح" : "Enter a valid number of days";
