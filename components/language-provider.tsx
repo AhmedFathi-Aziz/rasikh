@@ -41,7 +41,7 @@ const enTranslations = {
   // Hero section
   hero_title: "Empowering Future Innovators",
   hero_subtitle:
-    "Professional training in software engineering, competitive programming, and children's tech education",
+    "Professional training in administrative and technical fields.",
   get_started: "Get Started",
   learn_more: "Learn More",
 
@@ -49,7 +49,7 @@ const enTranslations = {
   about_title: "About Rasikh Academy",
   about_subtitle: "Excellence in Professional Training",
   about_description:
-    "Rasikh Academy is a distinguished institution with extensive experience in professional training and software engineering. Our mission is to provide high-quality education and training to students of all ages, from children to professionals.",
+    "Rasikh Academy is a distinguished institution with extensive experience in professional training and software engineering. The academy is committed to providing high-quality education and training that meets the needs of diverse groups and age ranges, and keeps pace with the evolving requirements of the job market.",
   our_mission: "Our Mission",
   our_vision: "Our Vision",
   our_values: "Our Values",
@@ -246,7 +246,7 @@ const arTranslations = {
 
   // Hero section
   hero_title: "تمكين مبتكري المستقبل",
-  hero_subtitle: "تدريب احترافي في هندسة البرمجيات والبرمجة التنافسية وتعليم التكنولوجيا للأطفال",
+  hero_subtitle: "تدريب مهني احترافي في المجالات الإدارية والتقنية.",
   get_started: "ابدأ الآن",
   learn_more: "اعرف المزيد",
 

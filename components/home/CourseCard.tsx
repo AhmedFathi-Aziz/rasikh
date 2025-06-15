@@ -36,7 +36,7 @@ export default function CourseCard({ course, index }: CourseCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-      className="bg-card rounded-2xl p-0 shadow-lg border border-border/50 hover:shadow-xl transition-all flex flex-col overflow-hidden max-w-sm mx-auto"
+      className="bg-card rounded-2xl p-0 shadow-lg border border-border/50 hover:shadow-xl transition-all flex flex-col overflow-hidden max-w-sm mx-auto h-full"
     >
       {/* Course Image/Logo */}
       <div className="w-full h-32 bg-muted overflow-hidden rounded-t-2xl">
@@ -46,7 +46,7 @@ export default function CourseCard({ course, index }: CourseCardProps) {
           className="object-cover w-full h-full"
         />
       </div>
-      <div className="flex-grow flex flex-col p-4">
+      <div className="flex flex-col flex-grow p-4">
         <h2 className="text-lg font-semibold mb-2 text-primary/90 text-center">{language === "ar" ? course.titleAr : course.titleEn}</h2>
         <p className="text-muted-foreground text-sm mb-3 text-center">{language === "ar" ? course.descriptionAr : course.descriptionEn}</p>
         <div className="space-y-2 mb-4">
@@ -71,13 +71,15 @@ export default function CourseCard({ course, index }: CourseCardProps) {
               : course.level.charAt(0).toUpperCase() + course.level.slice(1)}</span>
           </div>
         </div>
-        <div className={`flex gap-2 w-full ${isRTL ? 'flex-row-reverse' : ''}`}>
-          <Button asChild className="w-1/2 group mt-auto">
+        {/* This empty div with flex-grow pushes the buttons to the bottom */}
+        <div className="flex-grow" />
+        <div className={`flex gap-2 w-full ${isRTL ? 'flex-row-reverse' : ''} mt-2`}>
+          <Button asChild className="w-1/2 group">
             <Link href={`/courses/${course.id}`}>
               {language === "ar" ? "تفاصيل الكورس" : "Course Details"}
             </Link>
           </Button>
-          <Button asChild className="w-1/2 group mt-auto">
+          <Button asChild className="w-1/2 group">
             <Link href={`/courses/${course.id}/register`}>
               {language === "ar" ? "سجل الآن" : "Register Now"}
             </Link>

@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Plus, Edit, Trash2, Save, X, BookOpen, Users, BarChart, ClipboardList, Mail, MessageSquare } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 interface Course {
   id: string
@@ -62,6 +63,7 @@ export default function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const router = useRouter();
 
   // Fetch courses and stats from API
   useEffect(() => {
@@ -189,9 +191,15 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("admin-auth");
+    setIsAuthenticated(false);
+    router.refresh();
+  };
+
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-muted">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <form
           onSubmit={handleLogin}
           className="bg-white p-8 rounded-xl shadow-md w-full max-w-sm flex flex-col gap-4"
@@ -227,6 +235,12 @@ export default function AdminDashboard() {
 
   return (
     <div className="container mx-auto px-4 py-8" dir="ltr"> 
+      {/* Logout Button */}
+      <div className="flex justify-end mb-4">
+        <Button variant="outline" onClick={handleLogout}>
+          Logout
+        </Button>
+      </div>
       {/* Dashboard Header */}
       <div className="mb-8 flex flex-col gap-4 items-start text-left">
         <div className="space-y-4">

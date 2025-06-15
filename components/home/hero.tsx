@@ -25,16 +25,16 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_25%_at_50%_50%,var(--tw-gradient-from)_0%,var(--tw-gradient-to)_100%)] from-primary/20 to-transparent opacity-20"></div>
 
       <div className="container mx-auto px-4 sm:px-6 py-12 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className={language === "ar" ? "lg:order-2" : ""}
+            className={`flex-1 ${language === 'ar' ? 'text-right justify-end' : ''}`}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">{t("hero_title")}</h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-lg">{t("hero_subtitle")}</p>
-            <div className="flex flex-wrap gap-4">
+            <p className="text-base text-muted-foreground mb-8 max-w-lg">{t("hero_subtitle")}</p>
+            <div className="flex flex-wrap gap-4 ${language === 'ar' ? 'justify-end' : ''}">
               <Button size="lg" asChild>
                 <Link href="/courses">{t("get_started")}</Link>
               </Button>
@@ -48,7 +48,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className={`relative ${language === "ar" ? "lg:order-1" : ""}`}
+            className="flex-1 relative"
           >
             <div className="relative h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-xl">
               <Image
