@@ -29,6 +29,7 @@ const enTranslations = {
   our_mission: "Our Mission",
   our_vision: "Our Vision",
   our_values: "Our Values",
+  about_us: "About Us",
 
   // About features
   about_feature_1: "Experienced instructors with 20+ years in the field",
@@ -201,6 +202,7 @@ const arTranslations = {
   our_mission: "مهمتنا",
   our_vision: "رؤيتنا",
   our_values: "قيمنا",
+  about_us: "عن الأكاديمية",
 
   // About features
   about_feature_1: "مدربون ذوو خبرة تزيد عن 20 عامًا في المجال",
