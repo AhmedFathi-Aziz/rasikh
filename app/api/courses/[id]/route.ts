@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '../../../../lib/prisma';
 
-export async function PUT(request, { params }) {
-  const id = params.id;
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+): Promise<NextResponse> {
+  const { id } = await params;
   const data = await request.json();
   try {
     const updated = await prisma.course.update({
@@ -16,8 +19,11 @@ export async function PUT(request, { params }) {
   }
 }
 
-export async function DELETE(request, { params }) {
-  const id = params.id;
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+): Promise<NextResponse> {
+  const { id } = await params;
   try {
     await prisma.course.delete({ where: { id } });
     return NextResponse.json({ message: 'Course deleted' });
