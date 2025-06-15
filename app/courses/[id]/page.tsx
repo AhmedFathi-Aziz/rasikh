@@ -11,14 +11,15 @@ interface Course {
   titleEn: string
   descriptionAr: string
   descriptionEn: string
-  duration: string
+  duration: string | null
+  durationAr: string | null
+  durationEn: string | null
   level: string
   category: string
   image: string
   createdAt: string
-  durationAr: string
-  topicsAr?: string[]
-  topicsEn?: string[]
+  topicsAr: string[]
+  topicsEn: string[]
 }
 
 export default function CourseDetailPage() {
@@ -77,7 +78,9 @@ export default function CourseDetailPage() {
         <div className={`flex flex-wrap justify-center gap-4 mb-8 ${isRTL ? "flex-row-reverse" : ""}`}>
           <div className="flex items-center gap-2 bg-primary/10 rounded-xl px-5 py-3 shadow text-primary font-semibold">
             <Clock className="h-5 w-5" />
-            <span>{language === "ar" ? course.durationAr : course.durationEn}</span>
+            <span>{language === "ar" 
+              ? course.durationAr || course.duration || "غير محدد"
+              : course.durationEn || course.duration || "Not specified"}</span>
           </div>
           <div className="flex items-center gap-2 bg-primary/10 rounded-xl px-5 py-3 shadow text-primary font-semibold">
             <Users className="h-5 w-5" />
