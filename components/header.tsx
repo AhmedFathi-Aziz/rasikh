@@ -11,7 +11,12 @@ import { useLanguage } from "@/components/language-provider"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { motion } from "framer-motion"
 
-const navigation = [
+type NavigationItem = {
+  name: keyof typeof enTranslations;
+  href: string;
+}
+
+const navigation: NavigationItem[] = [
   { name: "home", href: "/" },
   { name: "about", href: "/about" },
   { name: "courses", href: "/courses" },
