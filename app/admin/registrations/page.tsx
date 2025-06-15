@@ -8,20 +8,20 @@ import { format } from "date-fns"
 
 interface Registration {
   id: string
-  course_id: string
-  course_name: string
+  courseId: string
+  courseName: string
   location: string
-  number_of_days: number
-  number_of_participants: number
-  preferred_language: string
-  first_name: string
-  last_name: string
-  job_title: string
+  numberOfDays: number
+  numberOfParticipants: number
+  preferredLanguage: string
+  firstName: string
+  lastName: string
+  jobTitle: string
   company: string
   phone: string
-  country_code: string
+  countryCode: string
   email: string
-  created_at: string
+  createdAt: string
 }
 
 export default function RegistrationsPage() {
