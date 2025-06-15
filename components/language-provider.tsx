@@ -103,18 +103,11 @@ const enTranslations = {
 
   // Footer
   footer_description:
-    "Rasikh Academy is a professional training institution in Dubai offering courses in software engineering, competitive programming, and children's tech education.",
+    "Rasikh Academy is a professional training institution in Dubai offering courses in software engineering and competitive programming.",
   quick_links: "Quick Links",
   all_rights_reserved: "All rights reserved.",
   privacy_policy: "Privacy Policy",
   terms_of_service: "Terms of Service",
-  footer_courses: [
-    "Cybersecurity",
-    "Project Management",
-    "Artificial Intelligence",
-    "Software Engineering",
-    "Information Technology"
-  ],
 
   // Testimonials
   testimonials: "What Our Students Say",
@@ -319,13 +312,6 @@ const arTranslations = {
   all_rights_reserved: "جميع الحقوق محفوظة.",
   privacy_policy: "سياسة الخصوصية",
   terms_of_service: "شروط الخدمة",
-  footer_courses: [
-    "الأمن السيبراني",
-    "إدارة المشاريع",
-    "الذكاء الإصطناعي",
-    "هندسة البرمجيات",
-    "تكنولوجيا المعلومات"
-  ],
 
   // Testimonials
   testimonials: "ماذا يقول طلابنا",
