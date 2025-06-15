@@ -15,7 +15,7 @@ const newsItems = [
     excerpt: "news_1_excerpt",
     image: "/placeholder.svg?height=200&width=300",
     date: "May 15, 2025",
-    category: "news_1_category",
+    category: "news_1_category" as const,
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const newsItems = [
     excerpt: "news_2_excerpt",
     image: "/placeholder.svg?height=200&width=300",
     date: "April 28, 2025",
-    category: "news_2_category",
+    category: "news_2_category" as const,
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const newsItems = [
     excerpt: "news_3_excerpt",
     image: "/placeholder.svg?height=200&width=300",
     date: "April 10, 2025",
-    category: "news_3_category",
+    category: "news_3_category" as const,
   },
 ]
 
