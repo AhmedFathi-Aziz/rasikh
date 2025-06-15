@@ -10,66 +10,92 @@ import { useLanguage } from "@/components/language-provider"
 export default function AboutPreview() {
   const { t, language } = useLanguage()
 
-  const features = [
-    t("about_feature_1"),
-    t("about_feature_2"),
-    t("about_feature_3"),
-    t("about_feature_5"),
-  ]
+  const features = language === "ar"
+    ? [
+        "برامج تدريبية معتمدة وذات اعتراف صناعي",
+        "مدربون خبراء بسجلات نجاح مثبتة في مجالاتهم",
+        "منهجيات حديثة وبيئات تعلم تفاعلية",
+        "دعم شامل للأفراد والمؤسسات"
+      ]
+    : [
+        "Accredited and industry-recognized training programs",
+        "Expert trainers with proven track records in their fields",
+        "Modern methodologies and interactive learning environments",
+        "Comprehensive support for both individuals and organizations"
+      ];
 
   return (
-    <section className="container mx-auto px-4 sm:px-6 py-12">
+    <section
+      className={`container mx-auto px-4 sm:px-6 py-12 ${language === "ar" ? "text-right" : "text-left"}`}
+      dir={language === "ar" ? "rtl" : "ltr"}
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: language === "ar" ? 20 : -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className={language === "ar" ? "lg:order-2" : ""}
         >
-          <div className="relative h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative h-[320px] sm:h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-xl mb-12 bg-white flex items-center justify-center">
             <Image
               src="/images/rasikh-logo.png"
               alt="Rasikh Academy Logo"
               fill
               className="object-contain p-8"
+              priority
             />
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: language === "ar" ? -20 : 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className={language === "ar" ? "lg:order-1" : ""}
         >
-          <h2 className="text-3xl font-bold tracking-tight mb-2">{t("about_title")}</h2>
-          <p className="text-primary font-medium mb-6">{language === "ar" ? "التميز في التدريب المهني" : "Excellence in Professional Training"}</p>
-          <p className="text-muted-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2 leading-tight">
+            {language === "ar" ? "عن أكاديمية راسخ" : "About Rasikh Academy"}
+          </h2>
+          <p className="text-primary font-semibold mb-6 text-lg md:text-xl">
+            {language === "ar" ? "التميز في التدريب المهني" : "Excellence in Professional Training"}
+          </p>
+          <p className="text-muted-foreground mb-8 text-base md:text-lg leading-relaxed">
             {language === "ar"
-              ? "تأسست أكاديمية راسخ وتجمع أكثر من 20 عامًا من الخبرة في التدريب المهني وهندسة البرمجيات. مهمتنا هي توفير تعليم وتدريب عالي الجودة للطلاب من جميع الأعمار، من الأطفال إلى المحترفين."
-              : "Rasikh Academy brings over 20 years of experience in professional training and software engineering. Our mission is to provide high-quality education and training to students of all ages, from children to professionals."}
+              ? "تلتزم أكاديمية راسخ بتقديم أعلى معايير الجودة في التدريب المهني والإداري. بخبرة تمتد لعقود، نوفر برامج معتمدة وتجارب تعليمية متطورة تهدف إلى تمكين الأفراد والمؤسسات من تحقيق التميز والريادة في مجالاتهم."
+              : "Rasikh Academy is dedicated to delivering the highest standards of quality in professional and administrative training. With decades of experience, we offer accredited programs and advanced learning experiences designed to empower individuals and organizations to achieve excellence and leadership in their fields."}
           </p>
 
-          <ul className="space-y-3 mb-8">
+          <ul
+            className={`
+              grid gap-4 mb-10
+              ${language === "ar" ? "text-right mt-16" : "text-left mt-12"}
+              sm:grid-cols-2
+            `}
+          >
             {features.map((feature, index) => (
               <motion.li
                 key={index}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="flex items-start"
+                className={`
+                  flex items-center p-4 bg-white rounded-xl shadow border
+                  ${language === "ar" ? "flex-row-reverse" : ""}
+                `}
               >
-                <CheckCircle className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                <span>{feature}</span>
+                <span className="flex items-center justify-center text-primary mr-4 ml-4 w-10 h-10">
+                  <CheckCircle className="h-6 w-6" />
+                </span>
+                <span className={`text-sm md:text-base ${language === "ar" ? "font-medium" : "font-normal"}`}>{feature}</span>
               </motion.li>
             ))}
           </ul>
 
-          <Button asChild>
-            <Link href="/about">{t("learn_more")}</Link>
+          <Button asChild size="lg" className="font-bold px-8 py-2 text-base md:text-lg">
+            <Link href="/about">{language === "ar" ? "اعرف المزيد" : t("learn_more")}</Link>
           </Button>
         </motion.div>
       </div>

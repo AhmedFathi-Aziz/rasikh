@@ -91,7 +91,7 @@ export default function Header() {
           </DropdownMenu>
 
           <Button asChild className="hidden md:inline-flex">
-            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSf9R81BdwV7QI5M8VCh5GQ5ZmaH52vxxPYcHR45vDZuFjDu1Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">{t("enroll_now")}</Link>
+            <Link href="/in-house-training">{t("enroll_now")}</Link>
           </Button>
 
           {/* Mobile Menu */}
@@ -116,8 +116,8 @@ export default function Header() {
                     {t(item.name)}
                   </Link>
                 ))}
-                <Button className="mt-4">
-                  <Link href="https://docs.google.com/forms/d/e/1FAIpQLSf9R81BdwV7QI5M8VCh5GQ5ZmaH52vxxPYcHR45vDZuFjDu1Q/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">{t("enroll_now")}</Link>
+                <Button className="mt-4" asChild>
+                  <Link href="/in-house-training">{t("enroll_now")}</Link>
                 </Button>
               </nav>
             </SheetContent>

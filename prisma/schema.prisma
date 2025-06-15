@@ -1,0 +1,79 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Course {
+  id             String   @id @default(uuid())
+  title          String?  // Deprecated, use titleAr/titleEn
+  titleAr        String
+  titleEn        String
+  description    String?  // Deprecated, use descriptionAr/descriptionEn
+  descriptionAr  String
+  descriptionEn  String
+  duration       String?  // Deprecated, use durationAr/durationEn
+  durationAr     String?
+  durationEn     String?
+  level          String
+  category       String
+  image          String
+  createdAt      DateTime @default(now())
+  topicsAr       String[]
+  topicsEn       String[]
+}
+
+model CourseRegistration {
+  id                    String   @id @default(uuid())
+  courseId              String
+  courseName            String
+  location              String
+  numberOfDays          Int
+  numberOfParticipants  Int
+  preferredLanguage     String
+  firstName             String
+  lastName              String
+  jobTitle              String
+  company               String
+  phone                 String
+  countryCode           String
+  email                 String
+  createdAt             DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model InHouseTrainingRequest {
+  id                String   @id @default(uuid())
+  courseName        String
+  companyName       String
+  numberOfDays      Int
+  numberOfTrainees  Int
+  preferredLanguage String
+  firstName         String
+  lastName          String
+  jobTitle          String
+  email             String
+  phone             String
+  countryCode       String
+  status            String   @default("pending") // pending, approved, rejected
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}

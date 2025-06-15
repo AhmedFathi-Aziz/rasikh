@@ -151,6 +151,28 @@ const enTranslations = {
   arduino_desc_ar: "تعلم الإلكترونيات والبرمجة مع أردوينو لمشاريع تفاعلية.",
   arduino_level_ar: "مبتدئ",
   arduino_duration_ar: "6 أسابيع",
+
+  // Admin section
+  admin_dashboard: "Admin Dashboard",
+  add_new_course: "Add New Course",
+  edit_course: "Edit Course",
+  course_title: "Course Title",
+  course_description: "Course Description",
+  duration: "Duration",
+  level: "Level",
+  category: "Category",
+  image_url: "Image URL",
+  save: "Save",
+  cancel: "Cancel",
+  delete: "Delete",
+  students: "Students",
+  analytics: "Analytics",
+  settings: "Settings",
+  beginner: "Beginner",
+  intermediate: "Intermediate",
+  advanced: "Advanced",
+  professional: "Professional",
+  kids: "Kids",
 }
 
 // Arabic translations
@@ -253,7 +275,7 @@ const arTranslations = {
   prodev_feature_4: "فرص للتواصل مع محترفي الصناعة",
   prodev_feature_5: "خيارات جدولة مرنة للمهنيين العاملين",
 
-  professional_development: "التطوير المهني",
+  professional_development: "التدريب المهني",
 
   about_stat_experience: "سنوات من الخبرة في هندسة البرمجيات",
   about_stat_trainers: "المدربون مهندسو برمجيات في شركات تقنية كبرى",
@@ -300,6 +322,28 @@ const arTranslations = {
   arduino_desc_ar: "تعلم الإلكترونيات والبرمجة مع أردوينو لمشاريع تفاعلية.",
   arduino_level_ar: "مبتدئ",
   arduino_duration_ar: "6 أسابيع",
+
+  // Admin section
+  admin_dashboard: "لوحة التحكم",
+  add_new_course: "إضافة دورة جديدة",
+  edit_course: "تعديل الدورة",
+  course_title: "عنوان الدورة",
+  course_description: "وصف الدورة",
+  duration: "المدة",
+  level: "المستوى",
+  category: "الفئة",
+  image_url: "رابط الصورة",
+  save: "حفظ",
+  cancel: "إلغاء",
+  delete: "حذف",
+  students: "الطلاب",
+  analytics: "التحليلات",
+  settings: "الإعدادات",
+  beginner: "مبتدئ",
+  intermediate: "متوسط",
+  advanced: "متقدم",
+  professional: "مهني",
+  kids: "أطفال",
   contact_paragraph: "نحن هنا للإجابة على أسئلتكم وتقديم المزيد من المعلومات حول برامجنا. تواصلوا معنا وسنرد عليكم في أقرب وقت ممكن.",
 }
 

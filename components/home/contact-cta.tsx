@@ -28,11 +28,18 @@ export default function ContactCTA() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact-messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+      if (res.ok) {
       toast({
-        title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
+          title: language === "ar" ? "تم إرسال الرسالة!" : "Message sent!",
+          description: language === "ar"
+            ? "سنرد عليك في أقرب وقت ممكن."
+            : "We'll get back to you as soon as possible.",
       })
       setFormData({
         name: "",
@@ -40,41 +47,56 @@ export default function ContactCTA() {
         subject: "",
         message: ""
       })
+      } else {
+        toast({
+          title: language === "ar" ? "حدث خطأ" : "Error",
+          description: language === "ar"
+            ? "فشل في إرسال الرسالة."
+            : "Failed to send message.",
+          variant: "destructive",
+        })
+      }
+    } catch (error) {
+      toast({
+        title: language === "ar" ? "حدث خطأ" : "Error",
+        description: language === "ar"
+          ? "فشل في إرسال الرسالة."
+          : "Failed to send message.",
+        variant: "destructive",
+      })
+    } finally {
       setIsSubmitting(false)
-    }, 1500)
+    }
   }
   
   return (
-    <section className="container mx-auto px-4 sm:px-6 py-12">
-      <div className="max-w-5xl mx-auto bg-muted rounded-xl overflow-hidden shadow-lg">
+    <section className="container mx-auto px-4 sm:px-6 py-16 bg-gradient-to-br from-primary/5 via-muted/40 to-background/80">
+      <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 bg-white/80 backdrop-blur-md">
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="bg-primary p-8 md:p-12 text-primary-foreground">
+          <div className="bg-primary p-10 md:p-16 text-primary-foreground flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-3xl font-bold mb-4">{t("contact_us")}</h2>
-              <p className="mb-6">
+              <h2 className="text-4xl font-extrabold mb-4 drop-shadow-lg">{t("contact_us")}</h2>
+              <p className="mb-8 text-lg opacity-90">
                 {t('contact_paragraph') === 'contact_paragraph' && t('contact_us') === 'Contact Us' && language === 'en'
                   ? 'We are here to answer your questions and provide more information about our programs. Reach out and we will get back to you as soon as possible.'
                   : t('contact_paragraph')}
               </p>
-              
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div>
-                  <h3 className="font-medium mb-1">{t("address") === "address" && language === "en" ? "Address" : t("address")}</h3>
+                  <h3 className="font-semibold mb-1 text-base">Address</h3>
                   <p className="text-sm opacity-90">Dubai</p>
                 </div>
-                
                 <div>
-                  <h3 className="font-medium mb-1">{t("email")}</h3>
+                  <h3 className="font-semibold mb-1 text-base">{t("email")}</h3>
                   <p className="text-sm opacity-90">info@rasikhacademy.com</p>
                 </div>
-                
                 <div>
-                  <h3 className="font-medium mb-1">{t("phone") === "phone" && language === "en" ? "Phone" : t("phone")}</h3>
+                  <h3 className="font-semibold mb-1 text-base">Phone</h3>
                   <p className="text-sm opacity-90">
                     <span dir="ltr" style={{ unicodeBidi: 'plaintext' }}>+971 52 577 5382</span>
                   </p>
@@ -82,27 +104,26 @@ export default function ContactCTA() {
               </div>
             </motion.div>
           </div>
-          
-          <div className="p-8 md:p-12">
+          <div className="p-10 md:p-16 bg-white/90 flex items-center justify-center">
             <motion.form
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
               onSubmit={handleSubmit}
-              className="space-y-4"
+              className="space-y-6 w-full"
             >
-              <div>
+              <div className="mb-6">
                 <Input
                   name="name"
                   placeholder={t("name")}
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  className="py-3 pl-6 pr-4 text-base"
                 />
               </div>
-              
-              <div>
+              <div className="mb-6">
                 <Input
                   name="email"
                   type="email"
@@ -110,33 +131,32 @@ export default function ContactCTA() {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  className="py-3 pl-6 pr-4 text-base"
                 />
               </div>
-
-              <div>
+              <div className="mb-6">
                 <Input
                   name="subject"
                   placeholder={t("subject")}
                   value={formData.subject}
                   onChange={handleChange}
                   required
+                  className="py-3 pl-6 pr-4 text-base"
                 />
               </div>
-
-              <div>
+              <div className="mb-6">
                 <textarea
                   name="message"
                   placeholder={t("message")}
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full h-32 p-2 border rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full h-32 pl-6 pr-4 py-4 border-2 border-primary/20 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-primary/40 text-base bg-white/80"
                 />
               </div>
-
               <button
                 type="submit"
-                className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-md font-semibold hover:bg-primary/90 transition disabled:opacity-50"
+                className="w-full bg-primary text-primary-foreground py-3 px-4 rounded-lg font-bold text-lg shadow-md hover:bg-primary/90 transition disabled:opacity-50"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? t("send_message") + "..." : t("send_message")}

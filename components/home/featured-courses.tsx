@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
@@ -9,73 +9,27 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useLanguage } from "@/components/language-provider"
-
-const courses = [
-  {
-    id: 1,
-    title: "software_engineering",
-    description: "Learn software engineering principles, design patterns, and best practices.",
-    image: "/images/software.jpg",
-    icon: Code,
-    level: "Intermediate",
-    duration: "12 weeks",
-    category: "Professional",
-  },
-  {
-    id: 2,
-    title: "web_development",
-    description: "Master modern web development with HTML, CSS, JavaScript, and popular frameworks.",
-    image: "/images/web.jpg",
-    icon: Globe,
-    level: "Beginner",
-    duration: "8 weeks",
-    category: "Professional",
-  },
-  {
-    id: 3,
-    title: "mobile_development",
-    description: "Build native and cross-platform mobile applications for iOS and Android.",
-    image: "/images/android.jpg",
-    icon: Smartphone,
-    level: "Intermediate",
-    duration: "10 weeks",
-    category: "Professional",
-  },
-  {
-    id: 4,
-    title: "kids_programming",
-    description: "Fun and interactive programming courses designed specifically for children.",
-    image: "/images/kids.jpg",
-    icon: Gamepad,
-    level: "Beginner",
-    duration: "6 weeks",
-    category: "Kids",
-  },
-  {
-    id: 5,
-    title: "competitive_programming",
-    description: "Enhance your problem-solving skills and prepare for programming competitions.",
-    image: "/images/icpc.png",
-    icon: Code,
-    level: "Advanced",
-    duration: "8 weeks",
-    category: "Professional",
-  },
-  {
-    id: 6,
-    title: "arduino",
-    description: "Learn electronics and programming with Arduino for interactive projects.",
-    image: "/images/arduino.jpg",
-    icon: Cpu,
-    level: "Beginner",
-    duration: "6 weeks",
-    category: "Kids",
-  },
-]
+import CourseCard from "@/components/home/CourseCard"
 
 export default function FeaturedCourses() {
   const { t, language } = useLanguage()
-  const [visibleCourses, setVisibleCourses] = useState(4)
+  const [courses, setCourses] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    setLoading(true)
+    fetch("/api/courses?limit=4")
+      .then(res => res.json())
+      .then(data => {
+        setCourses(Array.isArray(data) ? data : [])
+        setLoading(false)
+      })
+      .catch(() => {
+        setError("Failed to fetch courses")
+        setLoading(false)
+      })
+  }, [])
 
   const container = {
     hidden: { opacity: 0 },
@@ -117,65 +71,19 @@ export default function FeaturedCourses() {
         viewport={{ once: true, margin: "-100px" }}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
       >
-        {courses.slice(0, visibleCourses).map((course) => (
-          <motion.div key={course.id} variants={item}>
-            <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-md">
-              <div className="relative h-48 w-full overflow-hidden">
-                <Image
-                  src={course.image}
-                  alt={t(course.title)}
-                  fill
-                  className="object-cover transition-transform hover:scale-105"
-                />
-                <div className="absolute top-2 right-2">
-                  <Badge variant={course.category === "Kids" ? "secondary" : "default"}>
-                    {language === "ar"
-                      ? course.category === "Kids"
-                        ? "أطفال"
-                        : "مهني"
-                      : course.category}
-                  </Badge>
-                </div>
-              </div>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <course.icon className="h-5 w-5 text-primary" />
-                  <span>{t(course.title)}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-muted-foreground text-sm">
-                  {language === "ar"
-                    ? t(`${course.title}_desc_ar`)
-                    : course.description}
-                </p>
-                <div className="flex items-center gap-4 mt-4">
-                  <div className="text-xs text-muted-foreground">
-                    <span className="font-medium">
-                      {language === "ar" ? "المستوى:" : "Level:"}
-                    </span> {language === "ar" ? t(`${course.title}_level_ar`) : course.level}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    <span className="font-medium">
-                      {language === "ar" ? "المدة:" : "Duration:"}
-                    </span> {language === "ar" ? t(`${course.title}_duration_ar`) : course.duration}
-                  </div>
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" size="sm" className="w-full" asChild>
-                  <Link href={`/courses/${course.id}`}>{t("learn_more")}</Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          </motion.div>
+        {loading && <div className="col-span-full text-center py-8 text-muted-foreground">{t("loading") || "Loading..."}</div>}
+        {error && <div className="col-span-full text-center py-8 text-red-500">{error}</div>}
+        {!loading && !error && courses.slice(0, 4).map((course, idx) => (
+          <CourseCard key={course.id} course={course} index={idx} />
         ))}
       </motion.div>
 
-      {visibleCourses < courses.length && (
+      {courses.length > 4 && (
         <div className="flex justify-center mt-8">
-          <Button variant="outline" onClick={() => setVisibleCourses(courses.length)}>
-            Load More Courses
+          <Button variant="outline" asChild>
+            <Link href="/in-house-training">
+              {language === "ar" ? "طلب تدريب داخلي" : "Request an In-House Training"}
+            </Link>
           </Button>
         </div>
       )}

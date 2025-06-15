@@ -76,6 +76,7 @@ const programs = [
 export default function ProgramsHighlight() {
   const { t, language } = useLanguage()
   const [activeTab, setActiveTab] = useState(programs[0].id)
+  const isRTL = language === "ar"
 
   return (
     <section className="bg-muted/50 py-16">
@@ -87,7 +88,7 @@ export default function ProgramsHighlight() {
 
         <Tabs defaultValue={programs[0].id} onValueChange={setActiveTab} className="w-full">
           <div className="flex justify-center mb-8">
-            <TabsList className="flex flex-col items-center gap-2 w-full max-w-xs mx-auto mb-16">
+            <TabsList className="flex flex-row justify-center gap-2 w-full mb-16">
               {programs.map((program) => (
                 <TabsTrigger key={program.id} value={program.id}>
                   {t(program.title_key as keyof Translations)}
@@ -103,39 +104,29 @@ export default function ProgramsHighlight() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isRTL ? 'lg:grid-flow-dense' : ''}`}
               >
-                <div>
-                  <h3 className="text-2xl font-bold mb-4">
+                <div className={`${isRTL ? 'lg:col-start-2' : ''}`} dir={isRTL ? 'rtl' : 'ltr'}>
+                  <h3 className={`text-2xl font-bold mb-4 ${isRTL ? 'text-right' : ''}`}>
                     {t(program.title_key as keyof Translations)}
                   </h3>
-                  <p className="text-muted-foreground mb-6">
+                  <p className={`text-muted-foreground mb-6 ${isRTL ? 'text-right' : ''}`}>
                     {t(program.description_key as keyof Translations)}
                   </p>
-                  {language === "ar" && program.id === "competitive-programming" && (
-                    <div className="flex items-start mb-4">
-                      <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-primary/10 text-primary text-sm font-medium mr-3">
-                        1
-                      </span>
-                      <span dir="rtl">{t("comp_prog_feature_1" as any)}</span>
-                    </div>
-                  )}
-                  <ul className="space-y-3 mb-8">
+                  <ul className={`space-y-3 mb-8 ${isRTL ? 'text-right' : ''}`}>
                     {program.features_keys.map((featureKey, index) => (
-                      (language === "ar" && program.id === "competitive-programming" && index === 0) ? null : (
-                        <motion.li
-                          key={featureKey}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                          className="flex items-start"
-                        >
-                          <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-primary/10 text-primary text-sm font-medium mr-3">
-                            {index + 1}
-                          </span>
-                          <span>{t(featureKey as keyof Translations)}</span>
-                        </motion.li>
-                      )
+                      <motion.li
+                        key={featureKey}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="flex items-start gap-3"
+                      >
+                        <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                          {index + 1}
+                        </span>
+                        <span>{t(featureKey as keyof Translations)}</span>
+                      </motion.li>
                     ))}
                   </ul>
 
@@ -144,7 +135,7 @@ export default function ProgramsHighlight() {
                   </Button>
                 </div>
 
-                <div className="relative w-full h-[220px] xs:h-[260px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl overflow-hidden shadow-lg mt-8 lg:mt-0">
+                <div className={`relative w-full h-[220px] xs:h-[260px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-xl overflow-hidden shadow-lg mt-8 lg:mt-0 ${isRTL ? 'lg:col-start-1' : ''}`}>
                   <Image
                     src={program.image || "/placeholder.svg"}
                     alt="Program image"

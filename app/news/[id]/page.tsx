@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { FaWhatsapp } from "react-icons/fa"
 import { useLanguage } from "@/components/language-provider"
+import { PrismaClient } from '@/lib/generated/prisma'
 
 export default function NewsDetailPage() {
   const { id } = useParams<{ id: string }>()

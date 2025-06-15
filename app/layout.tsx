@@ -10,8 +10,19 @@ import { LanguageProvider } from "@/components/language-provider"
 import FontWrapper from "@/components/font-wrapper"
 import { Analytics } from "@vercel/analytics/react"
 
-const inter = Inter({ subsets: ["latin"] })
-const cairo = Cairo({ subsets: ["arabic"] })
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true,
+  variable: '--font-inter'
+})
+
+const cairo = Cairo({ 
+  subsets: ["arabic"],
+  display: 'swap',
+  preload: true,
+  variable: '--font-cairo'
+})
 
 export const metadata: Metadata = {
   title: "Rasikh Academy | Professional Training in Dubai | أكاديمية راسخ للتدريب في دبي",
@@ -94,7 +105,7 @@ export default function RootLayout({
         <meta name="twitter:site" content="@rasikhacademy" />
         <meta httpEquiv="Content-Language" content="ar" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${cairo.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="light">
           <LanguageProvider>
             <FontWrapper interClass={inter.className} arabicClass={cairo.className}>
