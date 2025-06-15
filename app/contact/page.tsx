@@ -72,8 +72,8 @@ export default function ContactPage() {
   }
 
   return (
-    <section className="container mx-auto px-4 sm:px-6 py-16 bg-gradient-to-br from-primary/5 via-muted/40 to-background/80">
-      <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 bg-white/80 backdrop-blur-md">
+    <section className="container mx-auto px-4 sm:px-6 py-16">
+      <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="bg-primary p-10 md:p-16 text-primary-foreground flex flex-col justify-center">
             <motion.div
@@ -106,7 +106,7 @@ export default function ContactPage() {
               </div>
             </motion.div>
           </div>
-          <div className="p-10 md:p-16 bg-white/90 flex items-center justify-center">
+          <div className="p-10 md:p-16 bg-white flex items-center justify-center">
             <motion.form
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full h-32 pl-6 pr-4 py-4 border-2 border-primary/20 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-primary/40 text-base bg-white/80"
+                  className="w-full h-32 pl-6 pr-4 py-4 border-2 border-primary/20 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-primary/40 text-base bg-white"
                 />
               </div>
               <button

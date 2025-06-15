@@ -11,10 +11,10 @@ export default function CustomizedTraining() {
 
   // Use available images for cyber security and software engineering related fields
   const logos = [
-    { src: "/images/icpc.png", alt: "Competitive Programming / Cyber Security" },
-    { src: "/images/kids.jpg", alt: "Software Engineering" },
-    { src: "/images/web.jpg", alt: "Web Development" },
-    { src: "/images/mobile.png", alt: "Mobile Development" }
+    { src: "/images/group.png", alt: "Competitive Programming / Cyber Security" },
+    { src: "/images/course-10.png", alt: "Software Engineering" },
+    { src: "/images/course-11.png", alt: "Web Development" },
+    { src: "/images/course-9.png", alt: "Mobile Development" }
   ]
 
   return (
@@ -57,9 +57,9 @@ export default function CustomizedTraining() {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-              className="bg-white rounded-xl shadow p-3 flex items-center justify-center h-20 w-32"
+              className="bg-white rounded-xl shadow flex items-center justify-center w-28 h-28"
             >
-              <Image src={logo.src} alt={logo.alt} width={100} height={60} className="object-contain" />
+              <Image src={logo.src} alt={logo.alt} width={112} height={112} className="object-cover w-full h-full rounded-xl" />
             </motion.div>
           ))}
         </motion.div>
