@@ -65,11 +65,11 @@ const enTranslations = {
   // Courses section
   featured_courses: "Featured Courses",
   view_all_courses: "View All Courses",
-  software_engineering: "Software Engineering",
-  web_development: "Web Development",
-  mobile_development: "Mobile Development",
-  competitive_programming: "Competitive Programming",
-  kids_programming: "Kids Programming",
+  software_engineering: "Cybersecurity",
+  web_development: "Project Management",
+  mobile_development: "Artificial Intelligence",
+  competitive_programming: "Software Engineering",
+  kids_programming: "Information Technology",
   game_development: "Game Development",
   arduino: "Arduino",
 
@@ -108,6 +108,13 @@ const enTranslations = {
   all_rights_reserved: "All rights reserved.",
   privacy_policy: "Privacy Policy",
   terms_of_service: "Terms of Service",
+  footer_courses: [
+    "Cybersecurity",
+    "Project Management",
+    "Artificial Intelligence",
+    "Software Engineering",
+    "Information Technology"
+  ],
 
   // Testimonials
   testimonials: "What Our Students Say",
@@ -270,11 +277,11 @@ const arTranslations = {
   // Courses section
   featured_courses: "الدورات المميزة",
   view_all_courses: "عرض جميع الدورات",
-  software_engineering: "هندسة البرمجيات",
-  web_development: "تطوير الويب",
-  mobile_development: "تطوير تطبيقات الجوال",
-  competitive_programming: "البرمجة التنافسية",
-  kids_programming: "برمجة للأطفال",
+  software_engineering: "الأمن السيبراني",
+  web_development: "إدارة المشاريع",
+  mobile_development: "الذكاء الإصطناعي",
+  competitive_programming: "هندسة البرمجيات",
+  kids_programming: "تكنولوجيا المعلومات",
   game_development: "تطوير الألعاب",
   arduino: "أردوينو",
 
@@ -307,11 +314,18 @@ const arTranslations = {
 
   // Footer
   footer_description:
-    "أكاديمية راسخ هي مؤسسة تدريب مهني في دبي تقدم دورات في هندسة البرمجيات والبرمجة التنافسية وتعليم التكنولوجيا للأطفال.",
+    "أكاديمية راسخ هي مؤسسة تدريب مهني في دبي تقدم دورات في هندسة البرمجيات والبرمجة التنافسية وتعليم التكنولوجيا.",
   quick_links: "روابط سريعة",
   all_rights_reserved: "جميع الحقوق محفوظة.",
   privacy_policy: "سياسة الخصوصية",
   terms_of_service: "شروط الخدمة",
+  footer_courses: [
+    "الأمن السيبراني",
+    "إدارة المشاريع",
+    "الذكاء الإصطناعي",
+    "هندسة البرمجيات",
+    "تكنولوجيا المعلومات"
+  ],
 
   // Testimonials
   testimonials: "ماذا يقول طلابنا",
