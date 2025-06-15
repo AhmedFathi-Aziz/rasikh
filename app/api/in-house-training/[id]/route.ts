@@ -3,14 +3,15 @@ import { prisma } from "@/lib/prisma"
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+  { params }: { params: Promise<{ id: string }> }
+): Promise<NextResponse> {
   try {
+    const { id } = await params
     const body = await request.json()
     const { status } = body
 
     const updatedRequest = await prisma.inHouseTrainingRequest.update({
-      where: { id: params.id },
+      where: { id },
       data: { status }
     })
 
