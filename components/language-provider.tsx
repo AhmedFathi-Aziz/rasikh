@@ -13,6 +13,17 @@ const enTranslations = {
   jobs: "Jobs",
   contact: "Contact",
   enroll_now: "Enroll Now",
+  news_and_updates: "News & Updates",
+  our_courses: "Our Courses",
+  loading: "Loading...",
+  no_courses: "No courses found.",
+  career_opportunities: "Career Opportunities",
+  discover_programs: "Discover Our Programs",
+  "Kids Tech Program": "Kids Tech Program",
+  contact_paragraph: "We're here to answer your questions and provide more information about our programs. Contact us and we'll get back to you as soon as possible.",
+  professional_development: "Professional Development",
+  about_the_coaches: "About the Coaches",
+  contact_us_to_enroll: "Contact Us to Enroll",
 
   // Hero section
   hero_title: "Empowering Future Innovators",
@@ -75,6 +86,7 @@ const enTranslations = {
   email: "Email",
   subject: "Subject",
   message: "Message",
+  get_in_touch: "Get in Touch",
 
   // Footer
   footer_description:
@@ -104,8 +116,6 @@ const enTranslations = {
   prodev_feature_3: "Career counseling and job placement assistance",
   prodev_feature_4: "Networking opportunities with industry professionals",
   prodev_feature_5: "Flexible scheduling options for working professionals",
-
-  professional_development: "Professional Development",
 
   about_stat_experience: "years of software engineering experience",
   about_stat_trainers: "Trainers are software engineers in major tech companies",
@@ -187,6 +197,17 @@ const arTranslations = {
   jobs: "الوظائف",
   contact: "اتصل بنا",
   enroll_now: "سجل الآن",
+  news_and_updates: "الأخبار والتحديثات",
+  our_courses: "دوراتنا",
+  loading: "جاري التحميل...",
+  no_courses: "لم يتم العثور على دورات.",
+  career_opportunities: "فرص العمل",
+  discover_programs: "اكتشف برامجنا",
+  "Kids Tech Program": "برنامج التكنولوجيا للأطفال",
+  contact_paragraph: "نحن هنا للإجابة على أسئلتكم وتقديم المزيد من المعلومات حول برامجنا. تواصلوا معنا وسنرد عليكم في أقرب وقت ممكن.",
+  professional_development: "التدريب المهني",
+  about_the_coaches: "عن المدربين",
+  contact_us_to_enroll: "تواصل معنا للتسجيل",
 
   // Hero section
   hero_title: "تمكين مبتكري المستقبل",
@@ -247,6 +268,7 @@ const arTranslations = {
   email: "البريد الإلكتروني",
   subject: "الموضوع",
   message: "الرسالة",
+  get_in_touch: "تواصل معنا",
 
   // Footer
   footer_description:
@@ -276,8 +298,6 @@ const arTranslations = {
   prodev_feature_3: "إرشاد مهني ومساعدة في التوظيف",
   prodev_feature_4: "فرص للتواصل مع محترفي الصناعة",
   prodev_feature_5: "خيارات جدولة مرنة للمهنيين العاملين",
-
-  professional_development: "التدريب المهني",
 
   about_stat_experience: "سنوات من الخبرة في هندسة البرمجيات",
   about_stat_trainers: "المدربون مهندسو برمجيات في شركات تقنية كبرى",
@@ -346,7 +366,6 @@ const arTranslations = {
   advanced: "متقدم",
   professional: "مهني",
   kids: "أطفال",
-  contact_paragraph: "نحن هنا للإجابة على أسئلتكم وتقديم المزيد من المعلومات حول برامجنا. تواصلوا معنا وسنرد عليكم في أقرب وقت ممكن.",
 }
 
 type Translations = typeof enTranslations
