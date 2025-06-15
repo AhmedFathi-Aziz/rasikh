@@ -13,12 +13,15 @@ interface Course {
   titleEn: string
   descriptionAr: string
   descriptionEn: string
-  duration: string
+  duration: string | null
+  durationAr: string | null
+  durationEn: string | null
   level: string
   category: string
   image: string
   createdAt: string
-  durationAr: string
+  topicsAr: string[]
+  topicsEn: string[]
 }
 
 export default function CoursesPage() {

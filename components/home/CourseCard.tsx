@@ -10,11 +10,15 @@ interface Course {
   titleEn: string;
   descriptionAr: string;
   descriptionEn: string;
-  durationAr: string;
-  durationEn: string;
+  duration: string | null;
+  durationAr: string | null;
+  durationEn: string | null;
   level: string;
   category: string;
   image: string;
+  createdAt: string;
+  topicsAr: string[];
+  topicsEn: string[];
 }
 
 interface CourseCardProps {
@@ -48,7 +52,9 @@ export default function CourseCard({ course, index }: CourseCardProps) {
         <div className="space-y-2 mb-4">
           <div className="flex items-center text-muted-foreground gap-2">
             <Clock className="h-5 w-5" />
-            <span>{language === "ar" ? course.durationAr : course.durationEn}</span>
+            <span>{language === "ar" 
+              ? course.durationAr || course.duration || "غير محدد"
+              : course.durationEn || course.duration || "Not specified"}</span>
           </div>
           <div className="flex items-center text-muted-foreground gap-2">
             <Users className="h-5 w-5" />
