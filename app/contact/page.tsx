@@ -3,114 +3,170 @@ import { useLanguage } from "@/components/language-provider"
 import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useState } from "react"
+import { Input } from "@/components/ui/input"
+import { useToast } from "@/hooks/use-toast"
 
 export default function ContactPage() {
   const { t, language } = useLanguage()
-  return (
-    <motion.section 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="container mx-auto px-4 sm:px-6 py-12 md:py-16 max-w-7xl"
-    >
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="text-center mb-16"
-      >
-        <span className="text-sm font-semibold tracking-wider uppercase text-primary mb-4 block">
-          {language === "ar" ? "تواصل معنا" : t("get_in_touch")}
-        </span>
-        <h1
-          className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.2] overflow-visible ${
-            language === "ar"
-              ? "font-extrabold cairo-font text-primary"
-              : "bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent"
-          }`}
-        >
-          {language === "ar" ? "اتصل بنا" : t("contact_us")}
-        </h1>
-        <div className="w-24 h-1 bg-primary/20 mx-auto my-8 rounded-full"></div>
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          {language === "ar"
-            ? "نحن هنا للإجابة على أسئلتكم وتقديم المزيد من المعلومات حول برامجنا. تواصلوا معنا وسنرد عليكم في أقرب وقت ممكن."
-            : "We're here to help and answer any questions you might have."}
-        </p>
-      </motion.div>
+  const { toast } = useToast()
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className={`bg-white/95 ${language === 'ar' ? 'rounded-l-2xl' : 'rounded-r-2xl'} p-8 md:p-12 shadow-sm hover:shadow-lg transition-all ${language === 'ar' ? 'text-right' : ''}`}
-          dir={language === 'ar' ? 'rtl' : 'ltr'}
-        >
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-primary/90">{language === "ar" ? "أرسل رسالة" : "Send us a Message"}</h2>
-          <form className="space-y-6" dir={language === 'ar' ? 'rtl' : 'ltr'}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label className="text-sm font-medium mb-2 block" dir={language === 'ar' ? 'rtl' : 'ltr'}>{language === "ar" ? "الاسم الأول" : "First Name"}</label>
-                <input type="text" className="w-full px-4 py-2 rounded-lg border border-border bg-background" dir={language === 'ar' ? 'rtl' : 'ltr'} />
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    // Split name into first and last
+    const [firstName, ...rest] = formData.name.trim().split(" ")
+    const lastName = rest.join(" ")
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: firstName || formData.name,
+          lastName: lastName || "",
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        }),
+      })
+      if (res.ok) {
+        toast({
+          title: language === "ar" ? "تم إرسال الرسالة!" : "Message sent!",
+          description: language === "ar"
+            ? "سنرد عليك في أقرب وقت ممكن."
+            : "We'll get back to you as soon as possible.",
+        })
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        toast({
+          title: language === "ar" ? "حدث خطأ" : "Error",
+          description: language === "ar"
+            ? "فشل في إرسال الرسالة."
+            : "Failed to send message.",
+          variant: "destructive",
+        })
+      }
+    } catch (error) {
+      toast({
+        title: language === "ar" ? "حدث خطأ" : "Error",
+        description: language === "ar"
+          ? "فشل في إرسال الرسالة."
+          : "Failed to send message.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <section className="container mx-auto px-4 sm:px-6 py-16 bg-gradient-to-br from-primary/5 via-muted/40 to-background/80">
+      <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20 bg-white/80 backdrop-blur-md">
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="bg-primary p-10 md:p-16 text-primary-foreground flex flex-col justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-4xl font-extrabold mb-4 drop-shadow-lg">{t("contact_us")}</h2>
+              <p className="mb-8 text-lg opacity-90">
+                {t('contact_paragraph') === 'contact_paragraph' && t('contact_us') === 'Contact Us' && language === 'en'
+                  ? 'We are here to answer your questions and provide more information about our programs. Reach out and we will get back to you as soon as possible.'
+                  : t('contact_paragraph')}
+              </p>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-semibold mb-1 text-base">Address</h3>
+                  <p className="text-sm opacity-90">Dubai</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1 text-base">{t("email")}</h3>
+                  <p className="text-sm opacity-90">info@rasikhacademy.com</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1 text-base">Phone</h3>
+                  <p className="text-sm opacity-90">
+                    <span dir="ltr" style={{ unicodeBidi: 'plaintext' }}>+971 52 577 5382</span>
+                  </p>
+                </div>
               </div>
-              <div>
-                <label className="text-sm font-medium mb-2 block" dir={language === 'ar' ? 'rtl' : 'ltr'}>{language === "ar" ? "اسم العائلة" : "Last Name"}</label>
-                <input type="text" className="w-full px-4 py-2 rounded-lg border border-border bg-background" dir={language === 'ar' ? 'rtl' : 'ltr'} />
-              </div>
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block" dir={language === 'ar' ? 'rtl' : 'ltr'}>{language === "ar" ? "البريد الإلكتروني" : "Email"}</label>
-              <input type="email" className="w-full px-4 py-2 rounded-lg border border-border bg-background" dir={language === 'ar' ? 'rtl' : 'ltr'} />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block" dir={language === 'ar' ? 'rtl' : 'ltr'}>{language === "ar" ? "الرسالة" : "Message"}</label>
-              <textarea rows={4} className="w-full px-4 py-2 rounded-lg border border-border bg-background resize-none" dir={language === 'ar' ? 'rtl' : 'ltr'}></textarea>
-            </div>
-            <Button className="w-full">
-              <Send className={language === "ar" ? "h-4 w-4 ml-2" : "h-4 w-4 mr-2"} />
-              {language === "ar" ? "إرسال الرسالة" : "Send Message"}
-            </Button>
-          </form>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className={`bg-black ${language === 'ar' ? 'rounded-r-2xl' : 'rounded-l-2xl'} p-8 md:p-12 shadow-sm hover:shadow-lg transition-all h-full ${language === 'ar' ? 'text-right' : ''}`}
-          style={{ color: 'white' }}
-          dir={language === 'ar' ? 'rtl' : 'ltr'}
-        >
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-primary-foreground">{t("academy_name")}</h2>
-          <div className="space-y-6">
-            <div className="flex items-start space-x-4">
-              <MapPin className="h-6 w-6 text-white flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-medium text-lg mb-1">{language === "ar" ? "العنوان" : "Location"}</h3>
-                <p className="text-white/80">{language === "ar" ? "دبي" : "Dubai"}</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <Mail className="h-6 w-6 text-white flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-medium text-lg mb-1">{language === "ar" ? "البريد الإلكتروني" : "Email"}</h3>
-                <a href="mailto:info@rasikhacademy.com" className="text-white hover:underline">
-                  info@rasikhacademy.com
-                </a>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <Phone className="h-6 w-6 text-white flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-medium text-lg mb-1">{language === "ar" ? "الهاتف" : "Phone"}</h3>
-                <a href="tel:+971525775382" className="text-white hover:underline">
-                  <span dir="ltr" style={{ unicodeBidi: 'plaintext' }}>+971 52 577 5382</span>
-                </a>
-              </div>
-            </div>
+            </motion.div>
           </div>
-        </motion.div>
+          <div className="p-10 md:p-16 bg-white/90 flex items-center justify-center">
+            <motion.form
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              onSubmit={handleSubmit}
+              className="space-y-6 w-full"
+            >
+              <div className="mb-6">
+                <Input
+                  name="name"
+                  placeholder={t("name")}
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="py-3 pl-6 pr-4 text-base"
+                />
+              </div>
+              <div className="mb-6">
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder={t("email")}
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="py-3 pl-6 pr-4 text-base"
+                />
+              </div>
+              <div className="mb-6">
+                <Input
+                  name="subject"
+                  placeholder={t("subject")}
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="py-3 pl-6 pr-4 text-base"
+                />
+              </div>
+              <div className="mb-6">
+                <textarea
+                  name="message"
+                  placeholder={t("message")}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full h-32 pl-6 pr-4 py-4 border-2 border-primary/20 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-primary/40 text-base bg-white/80"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-primary text-primary-foreground py-3 px-4 rounded-lg font-bold text-lg shadow-md hover:bg-primary/90 transition disabled:opacity-50"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? t("send_message") + "..." : t("send_message")}
+              </button>
+            </motion.form>
+          </div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   )
 } 

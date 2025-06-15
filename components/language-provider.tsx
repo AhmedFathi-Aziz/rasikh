@@ -47,20 +47,20 @@ const enTranslations = {
 
   // About section
   about_title: "About Rasikh Academy",
-  about_subtitle: "Excellence in Professional Training Since 2025",
+  about_subtitle: "Excellence in Professional Training",
   about_description:
-    "Founded in 2025, Rasikh Academy brings over 20 years of experience in professional training and software engineering. Our mission is to provide high-quality education and training to students of all ages, from children to professionals.",
+    "Rasikh Academy is a distinguished institution with extensive experience in professional training and software engineering. Our mission is to provide high-quality education and training to students of all ages, from children to professionals.",
   our_mission: "Our Mission",
   our_vision: "Our Vision",
   our_values: "Our Values",
   about_us: "About Us",
 
   // About features
-  about_feature_1: "Experienced instructors with 20+ years in the field",
-  about_feature_2: "Customized learning paths for different age groups",
-  about_feature_3: "Hands-on practical training with real-world projects",
-  about_feature_4: "Small class sizes for personalized attention",
-  about_feature_5: "State-of-the-art facilities and learning resources",
+  about_feature_1: "Distinguished instructors with extensive industry experience",
+  about_feature_2: "Tailored learning pathways for diverse age groups",
+  about_feature_3: "Comprehensive practical training with industry-standard projects",
+  about_feature_4: "Optimal class sizes ensuring personalized attention",
+  about_feature_5: "State-of-the-art facilities and comprehensive learning resources",
 
   // Courses section
   featured_courses: "Featured Courses",
@@ -252,20 +252,20 @@ const arTranslations = {
 
   // About section
   about_title: "عن أكاديمية راسخ",
-  about_subtitle: "التميز في التدريب المهني منذ 2025",
+  about_subtitle: "التميز في التدريب المهني",
   about_description:
-    "تأسست أكاديمية راسخ في عام 2025، وتجلب أكثر من 20 عامًا من الخبرة في التدريب المهني وهندسة البرمجيات. مهمتنا هي توفير تعليم وتدريب عالي الجودة للطلاب من جميع الأعمار، من الأطفال إلى المحترفين.",
+    "أكاديمية راسخ هي مؤسسة متميزة تتمتع بخبرة واسعة في التدريب المهني وهندسة البرمجيات. تلتزم الأكاديمية بتقديم تعليم وتدريب عالي الجودة يلبي احتياجات مختلف الفئات والأعمار، ويواكب متطلبات سوق العمل المتجددة.",
   our_mission: "مهمتنا",
   our_vision: "رؤيتنا",
   our_values: "قيمنا",
   about_us: "عن الأكاديمية",
 
   // About features
-  about_feature_1: "مدربون ذوو خبرة تزيد عن 20 عامًا في المجال",
-  about_feature_2: "مسارات تعلم مخصصة لمختلف الفئات العمرية",
-  about_feature_3: "تدريب عملي تطبيقي مع مشاريع واقعية",
-  about_feature_4: "حجم فصول صغير لضمان الاهتمام الفردي",
-  about_feature_5: "مرافق وموارد تعليمية حديثة ومتطورة",
+  about_feature_1: "مدربون متميزون يتمتعون بخبرة واسعة في المجال",
+  about_feature_2: "مسارات تعليمية مصممة لمختلف الفئات العمرية",
+  about_feature_3: "تدريب عملي شامل مع مشاريع معيارية للصناعة",
+  about_feature_4: "حجم فصول مثالي يضمن الاهتمام الفردي",
+  about_feature_5: "مرافق وموارد تعليمية متطورة وشاملة",
 
   // Courses section
   featured_courses: "الدورات المميزة",

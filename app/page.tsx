@@ -1,8 +1,8 @@
 import Hero from "@/components/home/hero"
 import FeaturedCourses from "@/components/home/featured-courses"
 import AboutPreview from "@/components/home/about-preview"
-import ProgramsHighlight from "@/components/home/programs-highlight"
 import ContactCTA from "@/components/home/contact-cta"
+import CustomizedTraining from "@/components/home/customized-training"
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       <FeaturedCourses />
       <AboutPreview />
-      <ProgramsHighlight />
+      <CustomizedTraining />
       <ContactCTA />
     </div>
   )

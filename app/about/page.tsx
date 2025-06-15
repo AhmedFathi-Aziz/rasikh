@@ -69,40 +69,30 @@ export default function AboutPage() {
           <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
             {t("about_description")}
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-            {features.map((feature, idx) => (
-              <div key={idx} className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                <p className="text-muted-foreground">{feature}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </motion.div>
-      
+
+      {/* Trainers Experience and Logos Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="bg-card rounded-2xl p-8 md:p-12 shadow-sm border border-border/50 hover:shadow-lg transition-all"
+        className="bg-card rounded-2xl p-8 md:p-12 shadow-sm border border-border/50 hover:shadow-lg transition-all mb-8"
       >
-        <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-center text-primary/90">
-          {language === "ar" ? "الدورات المتاحة" : "Our Course Offerings"}
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {courses.map((course, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.4 + idx * 0.05 }}
-              className="flex items-center space-x-4 p-6 bg-muted/50 rounded-xl border border-border/30 hover:bg-accent/50 transition-all group cursor-pointer"
-            >
-              <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
-              <span className="text-muted-foreground text-lg font-medium flex-grow">{course}</span>
-              <ArrowRight className={language === "ar" ? "h-5 w-5 text-primary/50 group-hover:text-primary transition-colors mr-2" : "h-5 w-5 text-primary/50 group-hover:text-primary transition-colors"} />
-            </motion.div>
-          ))}
+        <div className="text-center mb-8">
+          <h2 className="text-xl md:text-2xl font-bold text-primary/90">
+            {language === "ar"
+              ? "الشركات التي يعمل بها مدربونا ومبرمجونا"
+              : "Companies Where Our Instructors & Coaches Work"}
+          </h2>
+        </div>
+        <div className="flex flex-row items-center justify-center gap-8 flex-wrap">
+          <img src="/logos/google.png" alt="Google" className="h-32 max-w-[240px] object-contain" />
+          <img src="/logos/microsoft.png" alt="Microsoft" className="h-32 max-w-[240px] object-contain" />
+          <img src="/logos/valeo.png" alt="Valeo" className="h-32 max-w-[240px] object-contain" />
+          {/* <img src="/logos/vodafone.png" alt="Vodafone" className="h-32 max-w-[240px] object-contain" /> */}
+          <img src="/logos/siemens.png" alt="siemens" className="h-32 max-w-[240px] object-contain" />
+          <img src="/logos/facebook.png" alt="Meta" className="h-32 max-w-[240px] object-contain" />
         </div>
       </motion.div>
     </motion.section>

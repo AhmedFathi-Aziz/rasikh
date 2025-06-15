@@ -103,36 +103,45 @@ export default function ProgramsIndexPage() {
             transition={{ duration: 0.4, delay: 0.2 + idx * 0.1 }}
             className="group relative"
           >
-            <Link href={`/programs/${program.id}`}>
-              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border/50 hover:shadow-lg transition-all h-full">
-                <h2 className="text-2xl font-semibold mb-4 text-primary/90 group-hover:text-primary transition-colors">
+            <div className="bg-card rounded-xl p-4 shadow-2xl hover:shadow-2xl transition-all h-full flex flex-col justify-between">
+              <Link href={`/programs/${program.id}`} className="flex-1 block">
+                <h2 className="text-lg font-semibold mb-2 text-primary/90 group-hover:text-primary transition-colors">
                   {program.title}
                 </h2>
-                <p className="text-muted-foreground text-lg mb-6">
+                <p className="text-muted-foreground text-sm mb-3">
                   {program.description}
                 </p>
-                
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center text-muted-foreground">
-                    <Calendar className="h-5 w-5 mr-3" />
+                <div className="space-y-2 mb-4">
+                  <div className={`flex items-center text-muted-foreground text-sm`}> 
+                    <Calendar className={language === "ar" ? "h-4 w-4 ml-2" : "h-4 w-4 mr-2"} />
                     <span>{program.duration}</span>
                   </div>
-                  <div className="flex items-center text-muted-foreground">
-                    <Users className="h-5 w-5 mr-3" />
+                  <div className={`flex items-center text-muted-foreground text-sm`}> 
+                    <Users className={language === "ar" ? "h-4 w-4 ml-2" : "h-4 w-4 mr-2"} />
                     <span>{program.participants}</span>
                   </div>
-                  <div className="flex items-center text-muted-foreground">
-                    <Target className="h-5 w-5 mr-3" />
+                  <div className={`flex items-center text-muted-foreground text-sm`}> 
+                    <Target className={language === "ar" ? "h-4 w-4 ml-2" : "h-4 w-4 mr-2"} />
                     <span>{program.goal}</span>
                   </div>
                 </div>
-
-                <div className="flex items-center text-primary font-medium">
+                <div className="flex items-center text-primary font-medium mb-2 text-sm">
                   {language === "ar" ? "اعرف المزيد" : "Learn More"}
-                  <ArrowRight className={language === "ar" ? "h-4 w-4 mr-2 group-hover:-translate-x-2 transition-transform" : "h-4 w-4 ml-2 group-hover:translate-x-2 transition-transform"} />
+                  <ArrowRight className={language === "ar" ? "h-3 w-3 mr-2 group-hover:-translate-x-2 transition-transform" : "h-3 w-3 ml-2 group-hover:translate-x-2 transition-transform"} />
                 </div>
-              </div>
-            </Link>
+              </Link>
+              <Link
+                href={`/contact?course=${encodeURIComponent(program.title)}`}
+                className="w-full mt-1 block"
+              >
+                <button
+                  className="w-full py-2 px-4 rounded-lg bg-primary text-white font-bold text-base shadow hover:bg-primary/90 transition-colors"
+                  type="button"
+                >
+                  {language === "ar" ? "سجل الآن" : "Register"}
+                </button>
+              </Link>
+            </div>
           </motion.div>
         ))}
       </div>
