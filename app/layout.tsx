@@ -70,7 +70,7 @@ export const metadata: Metadata = {
       noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
-      maxSnippet: -1
+      "max-snippet": -1
     }
   },
   alternates: {
