@@ -7,12 +7,12 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu, Globe } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { useLanguage } from "@/components/language-provider"
+import { useLanguage, type Translations } from "@/components/language-provider"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { motion } from "framer-motion"
 
 type NavigationItem = {
-  name: keyof typeof enTranslations;
+  name: keyof Translations;
   href: string;
 }
 
