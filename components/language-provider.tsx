@@ -368,7 +368,7 @@ const arTranslations = {
   kids: "أطفال",
 }
 
-type Translations = typeof enTranslations
+export type Translations = typeof enTranslations
 type Language = "en" | "ar"
 
 interface LanguageContextType {
