@@ -30,6 +30,14 @@ const enTranslations = {
   news_2_category: "Announcement",
   news_3_category: "Event",
 
+  // News titles and excerpts
+  news_1_title: "New Partnership with Tech Leaders",
+  news_1_excerpt: "We are excited to announce our new partnership with leading technology companies to enhance our training programs.",
+  news_2_title: "Summer Program Registration Open",
+  news_2_excerpt: "Registration is now open for our summer programs. Early bird discounts available until May 15th.",
+  news_3_title: "Student Success Story",
+  news_3_excerpt: "Our student Ahmed won first place in the regional programming competition. Read about his journey with us.",
+
   // Hero section
   hero_title: "Empowering Future Innovators",
   hero_subtitle:
@@ -103,6 +111,15 @@ const enTranslations = {
 
   // Testimonials
   testimonials: "What Our Students Say",
+  testimonial_1_content: "The training at Rasikh Academy has been transformative. The coaches' expertise and personalized approach helped me excel in competitive programming.",
+  testimonial_1_name: "Ahmed Hassan",
+  testimonial_1_role: "Competitive Programming Student",
+  testimonial_2_content: "My children love the Kids Tech Program. The interactive learning environment and engaging projects make learning programming fun and exciting.",
+  testimonial_2_name: "Sarah Mohammed",
+  testimonial_2_role: "Parent",
+  testimonial_3_content: "The professional development program provided me with the skills and confidence to transition into a successful tech career.",
+  testimonial_3_name: "Mohammed Ali",
+  testimonial_3_role: "Software Engineer",
 
   // Partners
   our_partners: "Our Partners",
@@ -219,6 +236,14 @@ const arTranslations = {
   news_2_category: "إعلان",
   news_3_category: "فعالية",
 
+  // News titles and excerpts
+  news_1_title: "شراكة جديدة مع رواد التكنولوجيا",
+  news_1_excerpt: "يسرنا الإعلان عن شراكتنا الجديدة مع شركات التكنولوجيا الرائدة لتعزيز برامجنا التدريبية.",
+  news_2_title: "فتح باب التسجيل للبرامج الصيفية",
+  news_2_excerpt: "تم فتح باب التسجيل لبرامجنا الصيفية. خصومات للبادرين متاحة حتى 15 مايو.",
+  news_3_title: "قصة نجاح طالب",
+  news_3_excerpt: "حقق طالبنا أحمد المركز الأول في مسابقة البرمجة الإقليمية. اقرأ عن رحلته معنا.",
+
   // Hero section
   hero_title: "تمكين مبتكري المستقبل",
   hero_subtitle: "تدريب احترافي في هندسة البرمجيات والبرمجة التنافسية وتعليم التكنولوجيا للأطفال",
@@ -290,6 +315,15 @@ const arTranslations = {
 
   // Testimonials
   testimonials: "ماذا يقول طلابنا",
+  testimonial_1_content: "كان التدريب في أكاديمية راسخ تحويلياً. ساعدت خبرة المدربين ونهجهم الشخصي في تميزي في البرمجة التنافسية.",
+  testimonial_1_name: "أحمد حسن",
+  testimonial_1_role: "طالب برمجة تنافسية",
+  testimonial_2_content: "أطفالي يحبون برنامج التكنولوجيا للأطفال. البيئة التعليمية التفاعلية والمشاريع المشوقة تجعل تعلم البرمجة ممتعاً ومثيراً.",
+  testimonial_2_name: "سارة محمد",
+  testimonial_2_role: "أم",
+  testimonial_3_content: "قدم لي برنامج التطوير المهني المهارات والثقة للانتقال إلى مهنة تقنية ناجحة.",
+  testimonial_3_name: "محمد علي",
+  testimonial_3_role: "مهندس برمجيات",
 
   // Partners
   our_partners: "شركاؤنا",

@@ -7,33 +7,44 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useLanguage } from "@/components/language-provider"
+import type { Translations } from "@/components/language-provider"
 
 const newsItems = [
   {
     id: 1,
-    title: "news_1_title",
-    excerpt: "news_1_excerpt",
+    title: "news_1_title" as const,
+    excerpt: "news_1_excerpt" as const,
     image: "/placeholder.svg?height=200&width=300",
     date: "May 15, 2025",
     category: "news_1_category" as const,
   },
   {
     id: 2,
-    title: "news_2_title",
-    excerpt: "news_2_excerpt",
+    title: "news_2_title" as const,
+    excerpt: "news_2_excerpt" as const,
     image: "/placeholder.svg?height=200&width=300",
     date: "April 28, 2025",
     category: "news_2_category" as const,
   },
   {
     id: 3,
-    title: "news_3_title",
-    excerpt: "news_3_excerpt",
+    title: "news_3_title" as const,
+    excerpt: "news_3_excerpt" as const,
     image: "/placeholder.svg?height=200&width=300",
     date: "April 10, 2025",
     category: "news_3_category" as const,
   },
 ]
+
+// Add type for news items
+type NewsItem = {
+  id: number;
+  title: keyof Translations;
+  excerpt: keyof Translations;
+  image: string;
+  date: string;
+  category: keyof Translations;
+}
 
 export default function NewsPreview() {
   const { t } = useLanguage()
