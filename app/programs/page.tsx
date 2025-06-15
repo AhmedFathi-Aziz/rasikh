@@ -53,7 +53,7 @@ export default function ProgramsIndexPage() {
         },
         {
           id: "professional-development",
-          title: t("Professional Development"),
+          title: t("professional_development"),
           description: t("professional_development_description_formal"),
           duration: "4 months",
           participants: "Working professionals",
