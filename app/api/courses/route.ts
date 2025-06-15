@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '../../../lib/generated/prisma';
+import { prisma } from '../../../lib/prisma';
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;

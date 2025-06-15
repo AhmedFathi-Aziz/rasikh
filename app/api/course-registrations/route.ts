@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from '../../../lib/generated/prisma';
-
-const prisma = new PrismaClient();
+import { prisma } from '../../../lib/prisma';
 
 // Fetch data from the courses API endpoint
 const fetchData = async () => {
