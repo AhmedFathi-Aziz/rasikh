@@ -1,22 +1,16 @@
 import { NextRequest, NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
 
-type RouteContext = {
-  params: {
-    id: string
-  }
-}
-
 export async function PATCH(
   request: NextRequest,
-  context: RouteContext
+  { params }: { params: { id: string } }
 ) {
   try {
     const body = await request.json()
     const { status } = body
 
     const updatedRequest = await prisma.inHouseTrainingRequest.update({
-      where: { id: context.params.id },
+      where: { id: params.id },
       data: { status }
     })
 
