@@ -3,6 +3,7 @@ import FeaturedCourses from "@/components/home/featured-courses"
 import AboutPreview from "@/components/home/about-preview"
 import ContactCTA from "@/components/home/contact-cta"
 import CustomizedTraining from "@/components/home/customized-training"
+import NewsSection from "@/components/home/news-section"
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <FeaturedCourses />
       <AboutPreview />
       <CustomizedTraining />
+      <NewsSection />
       <ContactCTA />
     </div>
   )

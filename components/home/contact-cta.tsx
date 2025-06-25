@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/hooks/use-toast"
 import { useLanguage } from "@/components/language-provider"
+import { FaWhatsapp } from "react-icons/fa"
 
 export default function ContactCTA() {
   const { t, language } = useLanguage()
@@ -93,13 +94,19 @@ export default function ContactCTA() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-base">{t("email")}</h3>
-                  <p className="text-sm opacity-90">info@rasikhacademy.com</p>
+                  <a href="mailto:info@rasikhacademy.com" className="text-sm opacity-90 hover:text-primary transition">info@rasikhacademy.com</a>
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-base">Phone</h3>
-                  <p className="text-sm opacity-90">
-                    <span dir="ltr" style={{ unicodeBidi: 'plaintext' }}>+971 52 577 5382</span>
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <a href="tel:+971525775382" className="text-sm opacity-90 hover:text-primary transition" dir="ltr" style={{ unicodeBidi: 'plaintext' }}>+971 52 577 5382</a>
+                    <a href="https://wa.me/971525775382" target="_blank" rel="noopener noreferrer">
+                      <button className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-lg font-bold text-sm shadow">
+                        <FaWhatsapp className="w-5 h-5" />
+                        Let's Talk
+                      </button>
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>

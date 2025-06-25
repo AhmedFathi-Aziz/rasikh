@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Plus, Edit, Trash2, Save, X, BookOpen, Users, BarChart, ClipboardList, Mail, MessageSquare } from "lucide-react"
+import { Plus, Edit, Trash2, Save, X, BookOpen, Users, BarChart, ClipboardList, Mail, MessageSquare, Newspaper, Book } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -64,6 +64,7 @@ export default function AdminDashboard() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const router = useRouter();
+  const [newsCount, setNewsCount] = useState<number>(0)
 
   // Fetch courses and stats from API
   useEffect(() => {
@@ -72,15 +73,17 @@ export default function AdminDashboard() {
       fetch("/api/courses").then(res => res.json()),
       fetch("/api/course-registrations").then(res => res.json()),
       fetch("/api/contact-messages").then(res => res.json()),
-      fetch("/api/in-house-training").then(res => res.json())
+      fetch("/api/in-house-training").then(res => res.json()),
+      fetch("/api/news").then(res => res.json())
     ])
-      .then(([coursesData, registrations, messages, inHouseRequests]) => {
+      .then(([coursesData, registrations, messages, inHouseRequests, newsData]) => {
         setCourses(Array.isArray(coursesData) ? coursesData : [])
         setStats({
           courseRegistrations: Array.isArray(registrations) ? registrations.length : 0,
           contactMessages: Array.isArray(messages) ? messages.length : 0,
           inHouseRequests: Array.isArray(inHouseRequests) ? inHouseRequests.length : 0
         })
+        setNewsCount(Array.isArray(newsData) ? newsData.length : 0)
         setLoading(false)
       })
       .catch(() => {
@@ -249,7 +252,7 @@ export default function AdminDashboard() {
             Manage your website content and settings from here.
           </p>
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 justify-center">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-6 justify-center">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
@@ -292,6 +295,36 @@ export default function AdminDashboard() {
               </p>
             </CardContent>
           </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">
+                Courses
+              </CardTitle>
+              <Book className="h-4 w-4 text-muted-foreground ml-2" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{courses.length}</div>
+              <p className="text-xs text-muted-foreground">
+                Total courses
+              </p>
+            </CardContent>
+          </Card>
+          <Link href="/admin/news" className="contents">
+            <Card className="cursor-pointer h-full">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  News
+                </CardTitle>
+                <Newspaper className="h-4 w-4 text-muted-foreground ml-2" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{newsCount}</div>
+                <p className="text-xs text-muted-foreground">
+                  Total news items
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
       </div>
 

@@ -82,10 +82,10 @@ export default function FeaturedCourses() {
         <div className="flex justify-center mt-8">
           <Link href="/in-house-training">
             <button
-              className="px-10 py-5 bg-black text-white text-xl font-extrabold rounded-2xl shadow-lg flex items-center gap-3 transition-transform transform hover:scale-105 hover:bg-white hover:text-black border-2 border-black animate-bounce-slow"
-              style={{ minWidth: '260px', minHeight: '64px' }}
+              className="px-6 py-2 bg-black text-white text-base font-bold rounded-xl shadow-lg flex items-center gap-2 transition-transform transform hover:scale-105 hover:bg-white hover:text-black border-2 border-black animate-bounce-slow"
+              style={{ minWidth: '160px', minHeight: '40px' }}
             >
-              <svg xmlns='http://www.w3.org/2000/svg' className='h-7 w-7' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 10c-4.41 0-8-1.79-8-4V6c0-2.21 3.59-4 8-4s8 1.79 8 4v8c0 2.21-3.59 4-8 4z' /></svg>
+              <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 10c-4.41 0-8-1.79-8-4V6c0-2.21 3.59-4 8-4s8 1.79 8 4v8c0 2.21-3.59 4-8 4z' /></svg>
               {language === "ar" ? "طلب تدريب داخلي" : "Request an In-House Training"}
             </button>
           </Link>

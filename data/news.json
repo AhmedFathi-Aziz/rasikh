@@ -1,0 +1,32 @@
+[
+  {
+    "title_ar": "الإمارات.. مركز عالمي للذكاء الاصطناعي",
+    "title_en": "The UAE: A Global Center for Artificial Intelligence",
+    "description_ar": "الإمارات، مركز عالمي للذكاء الاصطناعي، شراكة بين الإمارات والولايات المتحدة لإطلاق مجمع ذكاء اصطناعي ضخم في أبوظبي، المشروع يعد الأكبر من نوعه خارج الولايات المتحدة قدرته التشغيلية تصل إلى 5 غيغاوات",
+    "description_en": "The UAE, a global center for artificial intelligence, has partnered with the United States to launch a massive artificial intelligence complex in Abu Dhabi. The project is the largest of its kind outside the United States, with an operational capacity of up to 5 gigawatts.",
+    "image": "/images/news-1.jpeg",
+    "source": "Sky News Arabia",
+    "sourceUrl": "https://amp.skynewsarabia.com/video/1799081-%D8%A7%D9%84%D8%A7%D9%95%D9%85%D8%A7%D8%B1%D8%A7%D8%AA-%D9%85%D8%B1%D9%83%D8%B2-%D8%B9%D8%A7%D9%84%D9%85%D9%8A-%D9%84%D9%84%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A",
+    "id": 3
+  },
+  {
+    "title_ar": "الإمارات.. إطلاق أول نموذج ذكاء اصطناعي باللغة العربية",
+    "title_en": "UAE launches first Arabic-language AI model",
+    "description_ar": "أعلن معهد الابتكار التكنولوجي، الذراع البحثية التطبيقية التابعة لمجلس أبحاث التكنولوجيا المتطورة في أبوظبي بالإمارات العربية المتحدة، الأربعاء، إطلاق نموذجين جديدين يمثلان إنجازا مهما في مسيرة الذكاء الاصطناعي في المنطقة، وهما فالكون عربي وفالكون H1.",
+    "description_en": "The Technology Innovation Institute (TII), the applied research arm of the Advanced Technology Research Council (ATRC) in Abu Dhabi, UAE, announced on Wednesday the launch of two new models that represent a significant milestone in the region's artificial intelligence (AI) journey: Falcon Arabi and Falcon H1.",
+    "image": "/images/news-2.webp",
+    "source": "Sky News Arabia",
+    "sourceUrl": "https://www.skynewsarabia.com/technology/1797885-%D8%A7%D9%84%D8%A7%D9%95%D9%85%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%95%D8%B7%D9%84%D8%A7%D9%82-%D9%86%D9%85%D9%88%D8%B0%D8%AC-%D8%B0%D9%83%D8%A7%D8%A1-%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-%D8%A8%D8%A7%D9%84%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9",
+    "id": 4
+  },
+  {
+    "image": "/images/news-3.webp",
+    "title_ar": "القطاع التكنولوجي الإماراتي يستعد لنمو قياسي في 2025",
+    "title_en": "The UAE's technology sector is poised for record growth in 2025.",
+    "description_ar": "تستعد صناعة التكنولوجيا في دولة الإمارات لتحقيق نمو قياسي في عام 2025، مدفوعة بالتوسع الكبير في الابتكار الرقمي وتبني أحدث التقنيات؛ إذ يرسخ هذا النمو مكانتها باعتبارها مركزا عالميا للابتكار ومنارة دولية للشركات التكنولوجية، بحسب ما ذكرته وكالة أنباء الإمارات \"وام\".",
+    "description_en": "The UAE's technology industry is poised to achieve record growth in 2025, driven by a significant expansion in digital innovation and the adoption of cutting-edge technologies. This growth will cement its position as a global innovation hub and an international beacon for technology companies, according to the Emirates News Agency (WAM).",
+    "source": "Sky News Arabia",
+    "sourceUrl": "https://www.skynewsarabia.com/business/1768195-%D8%A7%D9%84%D9%82%D8%B7%D8%A7%D8%B9-%D8%A7%D9%84%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A-%D8%A7%D9%84%D8%A7%D9%95%D9%85%D8%A7%D8%B1%D8%A7%D8%AA%D9%8A-%D9%8A%D8%B3%D8%AA%D8%B9%D8%AF-%D9%84%D9%86%D9%85%D9%88-%D9%82%D9%8A%D8%A7%D8%B3%D9%8A-2025",
+    "id": 5
+  }
+]
