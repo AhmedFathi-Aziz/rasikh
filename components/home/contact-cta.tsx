@@ -94,12 +94,12 @@ export default function ContactCTA() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-base">{t("email")}</h3>
-                  <a href="mailto:info@rasikhacademy.com" className="text-sm opacity-90 hover:text-primary transition">info@rasikhacademy.com</a>
+                  <a href="mailto:info@rasikhacademy.com" className="text-sm opacity-90 transition hover:font-bold">info@rasikhacademy.com</a>
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-base">Phone</h3>
-                  <div className="flex items-center gap-3">
-                    <a href="tel:+971525775382" className="text-sm opacity-90 hover:text-primary transition" dir="ltr" style={{ unicodeBidi: 'plaintext' }}>+971 52 577 5382</a>
+                  <div className="flex items-center gap-3 contact-phone-row">
+                    <a href="tel:+971525775382" className="text-sm opacity-90 transition hover:font-bold" dir="ltr" style={{ unicodeBidi: 'plaintext' }}>+971 52 577 5382</a>
                     <a href="https://wa.me/971525775382" target="_blank" rel="noopener noreferrer">
                       <button className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-lg font-bold text-sm shadow">
                         <FaWhatsapp className="w-5 h-5" />
@@ -172,6 +172,15 @@ export default function ContactCTA() {
           </div>
         </div>
       </div>
+      <style jsx global>{`
+        @media (max-width: 1021px) and (min-width: 762px) {
+          .contact-phone-row {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 0.5rem !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

@@ -10,6 +10,7 @@ import { LanguageProvider } from "@/components/language-provider"
 import FontWrapper from "@/components/font-wrapper"
 import { Analytics } from "@vercel/analytics/react"
 import Script from "next/script"
+import WhatsappButton from "@/components/WhatsappButton"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -185,6 +186,7 @@ export default function RootLayout({
           </LanguageProvider>
         </ThemeProvider>
         <Analytics />
+        <WhatsappButton />
       </body>
     </html>
   )
