@@ -4,6 +4,7 @@ import AboutPreview from "@/components/home/about-preview"
 import ContactCTA from "@/components/home/contact-cta"
 import CustomizedTraining from "@/components/home/customized-training"
 import NewsSection from "@/components/home/news-section"
+import BlogSection from '@/components/home/blog-section'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <AboutPreview />
       <CustomizedTraining />
       <NewsSection />
+      <BlogSection />
       <ContactCTA />
     </div>
   )

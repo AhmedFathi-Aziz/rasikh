@@ -424,8 +424,8 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Set default language to Arabic
-  const [language, setLanguage] = useState<Language>("ar")
+  // Set default language to English
+  const [language, setLanguage] = useState<Language>("en")
 
   useEffect(() => {
     // Try to load language from localStorage only on mount
