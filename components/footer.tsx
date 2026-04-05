@@ -11,11 +11,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <motion.footer 
-      initial={{ opacity: 0, y: 30 }}
+    <motion.footer
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      className="bg-muted py-12 border-t"
+      className="relative z-10 border-t border-border/60 bg-muted py-12"
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -138,8 +137,8 @@ export default function Footer() {
               </p>
               <p className="text-sm text-muted-foreground">
                 <span className="block font-medium">{language === 'ar' ? 'الهاتف' : 'Phone'}</span>
-                <a href="tel:+971525775382" className="hover:text-primary">
-                  <span dir="ltr" style={{ unicodeBidi: 'plaintext' }}>+971 52 577 5382</span>
+                <a href="tel:+971504365189" className="hover:text-primary">
+                  <span dir="ltr" style={{ unicodeBidi: 'plaintext' }}>+971 50 436 5189</span>
                 </a>
               </p>
             </address>

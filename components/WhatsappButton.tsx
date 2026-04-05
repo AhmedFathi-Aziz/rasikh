@@ -1,6 +1,6 @@
 import React from "react"
 
-const whatsappNumber = "971525775382"
+const whatsappNumber = "971504365189"
 const whatsappLink = `https://wa.me/${whatsappNumber}`
 
 export default function WhatsappButton() {

@@ -45,12 +45,11 @@ export default function Header() {
 
   return (
     <motion.header
-      initial={{ opacity: 0, y: -30 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm" : "bg-transparent",
+        "sticky top-0 z-[100] w-full border-b border-border/60 bg-background/95 backdrop-blur-md transition-all duration-300",
+        isScrolled && "shadow-sm",
       )}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
