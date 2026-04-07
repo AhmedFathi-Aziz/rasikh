@@ -1,9 +1,16 @@
+ "use client"
+
 import React from "react"
+import { usePathname } from "next/navigation"
 
 const whatsappNumber = "971504365189"
 const whatsappLink = `https://wa.me/${whatsappNumber}`
 
 export default function WhatsappButton() {
+  const pathname = usePathname()
+
+  if (pathname?.startsWith("/admin")) return null
+
   return (
     <a
       href={whatsappLink}

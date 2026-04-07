@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -202,36 +203,68 @@ export default function AdminDashboard() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="min-h-screen bg-white px-4 py-10">
         <form
           onSubmit={handleLogin}
-          className="bg-white p-8 rounded-xl shadow-md w-full max-w-sm flex flex-col gap-4"
+          className="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-[#26b592]/35 bg-white shadow-xl"
         >
-          <h2 className="text-2xl font-bold mb-4 text-center">Admin Login</h2>
-          <input
-            type="text"
-            placeholder="Username"
-            className="border rounded px-3 py-2"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="border rounded px-3 py-2"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required
-          />
-          {error && <div className="text-red-500 text-sm">{error}</div>}
-          <button
-            type="submit"
-            className="bg-primary text-white py-2 rounded font-semibold"
-          >
-            Login
-          </button>
+          <div className="border-b border-[#26b592]/25 bg-[#f4fbf9] px-6 py-6 text-center">
+            <div className="mx-auto mb-4 flex h-24 w-full items-center justify-center rounded-xl bg-white px-3 shadow-sm ring-1 ring-[#1e6f72]/15">
+              <Image
+                src="/images/rasikh-logo.png"
+                alt="Rasikh Academy"
+                width={260}
+                height={90}
+                priority
+                className="h-16 w-auto object-contain"
+              />
+            </div>
+            <h2 className="text-xl font-bold text-[#1e6f72]">Admin Login</h2>
+            <p className="mt-1 text-sm text-[#1e6f72]/80">
+              Sign in to manage Rasikh Academy content
+            </p>
+          </div>
+
+          <div className="space-y-4 px-6 py-6">
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-[#1e6f72]">Username</label>
+              <Input
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Enter your username"
+                autoComplete="username"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-[#1e6f72]">Password</label>
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+                autoComplete="current-password"
+                required
+              />
+            </div>
+
+            {error && (
+              <div className="rounded-lg border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                {error}
+              </div>
+            )}
+
+            <Button
+              type="submit"
+              className="w-full bg-[#1e6f72] text-white hover:bg-[#185b5e]"
+            >
+              Login
+            </Button>
+          </div>
         </form>
+        <p className="mx-auto mt-6 max-w-md text-center text-xs text-[#1e6f72]/75">
+          If you forgot your credentials, contact the site administrator.
+        </p>
       </div>
     );
   }
